@@ -16,7 +16,6 @@ class PostmatesAPI(object):
     self.version = version
 
   def post_delivery_quote(self, pickup_address, dropoff_address):
-
     url = self._delivery_quote_url()
 
     params = {
@@ -102,19 +101,16 @@ class DeliveryQuote(object):
     return self.expires < now
 
   def __repr__(self):
-    return \
-    '''
-      Postmates Delivery Quote:
-        id: %s
-        Created At: %s
-        Fee: $%.2f %s
-        Dropoff ETA: %s
-        Expires: %s
-        Expired: %s
-    ''' % (self.quote_id, _to_local_tz(self.created),
-           self.fee/100.0, self.currency,
-           _to_local_tz(self.dropoff_eta), _to_local_tz(self.expires),
-           self.expired)
+    s = []
+    s.append('Postmates Delivery Quote --------')
+    s.append('ID: %s' % self.quote_id)
+    s.append('Created At: %s' % _to_local_tz(self.created))
+    s.append('Fee: $%.2f %s' % (self.fee/100.0, self.currency))
+    s.append('Dropoff ETA: %s' % _to_local_tz(self.dropoff_eta))
+    s.append('Expires: %s' % _to_local_tz(self.expires))
+    s.append('Expired: %s' % self.expired)
+
+    return '\n'.join(s)
 
 class Delivery(object):
 
