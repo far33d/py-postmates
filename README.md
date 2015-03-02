@@ -1,6 +1,8 @@
 py-postmates
 ============
 
+Hi!
+
 A simple Python client for the Postmates API.
 
 Create an instance of the API
