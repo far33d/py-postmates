@@ -19,7 +19,7 @@ Create some locations and get a quote for a delivery.
 pickup = pm.Location('Alice', '100 Start St, San Francisco, CA', '415-555-0000')
 dropoff = pm.Location('Bob', '200 End St, San Francisco, CA', '415-777-9999')
 
-quote = pm.DeliveryQuote(pickup.address, dropoff.address)
+quote = pm.DeliveryQuote(api, pickup.address, dropoff.address)
 ```
 
 Create a delivery and schedule it.
