@@ -5,6 +5,14 @@ Hi!
 
 A simple Python client for the Postmates API.
 
+## Setup
+
+You may need to install the secucity pacakge extras for `requests`:
+
+    $ pip install requests[security]
+
+## Usage
+
 Create an instance of the API
 
 ```python
